@@ -1,0 +1,10 @@
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\bin\Debug\Sitting roller v2.exe.config
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\bin\Debug\Sitting roller v2.exe
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\bin\Debug\Sitting roller v2.pdb
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting roller v2.csproj.AssemblyReference.cache
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting_roller_v2.frmroller.resources
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting_roller_v2.Properties.Resources.resources
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting roller v2.csproj.GenerateResource.cache
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting roller v2.csproj.CoreCompileInputs.cache
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting roller v2.exe
+C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Sitting roller v2\obj\Debug\Sitting roller v2.pdb
