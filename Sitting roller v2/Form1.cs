@@ -16,9 +16,8 @@ namespace Sitting_roller_v2
     public partial class frmroller : Form
     {
         List<string> People = new List<string>();
-        public string[] removeSave = { };
+        public string Text;
         public string filePath = @"C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Save_List.txt";
-        public int remove = 0;
         public int old = -1;
         public frmroller()
         {
@@ -28,7 +27,7 @@ namespace Sitting_roller_v2
         //Shortcuts
         private void OnKeyDownHandeler(object sender, KeyEventArgs kea)
         {
-            //temp
+            //SK Cycle up
             if (kea.KeyCode.Equals(Keys.Up))
             {
                 if (old + 1 < People.Count)
@@ -38,6 +37,7 @@ namespace Sitting_roller_v2
                     Console.Write("?");
                 }
             }
+            //SK Cycle down
             if (kea.KeyCode.Equals(Keys.Down))
             {
                 if (old - 1 >= 0)
@@ -52,7 +52,8 @@ namespace Sitting_roller_v2
                 }
             }
 
-            //temp
+            
+            //SK Add
             if (kea.KeyCode.Equals(Keys.Return))
             {
                 lblList.Text = "";
@@ -65,6 +66,7 @@ namespace Sitting_roller_v2
                 txtAR.Text = "";
                 txtAR.Focus();
             }
+            //SK Remove
             if (kea.KeyCode.Equals(Keys.Delete))
             {
                 lblList.Text = "";
@@ -100,7 +102,6 @@ namespace Sitting_roller_v2
             {
                 lblList.Text = lblList.Text + line1 + "\n";
             }
-            Array.Resize(ref removeSave, 0);
         }
         //Roll
         private void btnRoll_Click(object sender, EventArgs e)
