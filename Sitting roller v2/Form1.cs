@@ -26,15 +26,15 @@ namespace Sitting_roller_v2
         }
 
         //Shortcuts
-        private void OnKeyDownHandeler(object sender, KeyEventArgs kea) 
+        private void OnKeyDownHandeler(object sender, KeyEventArgs kea)
         {
+            //temp
             if (kea.KeyCode.Equals(Keys.Up))
             {
                 if (old + 1 < People.Length)
                 {
                     old++;
                     txtAR.Text = People[old];
-                    
                 }
             }
             if (kea.KeyCode.Equals(Keys.Down))
@@ -43,14 +43,16 @@ namespace Sitting_roller_v2
                 {
                     old--;
                     txtAR.Text = People[old];
-                } 
-                else 
+                }
+                else
                 {
                     txtAR.Text = "";
                     old = -1;
                 }
             }
-            if (kea.KeyCode.Equals(Keys.Return)) 
+
+            //temp
+            if (kea.KeyCode.Equals(Keys.Return))
             {
                 lblList.Text = "";
                 Array.Resize(ref People, People.Length + 1);
@@ -87,7 +89,7 @@ namespace Sitting_roller_v2
                     People[People.Length - 1] = line;
 
                 }
-                foreach (string line1 in People) 
+                foreach (string line1 in People)
                 {
                     lblList.Text = lblList.Text + line1 + "\n";
                 }
