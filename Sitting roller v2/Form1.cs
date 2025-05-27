@@ -15,7 +15,9 @@ namespace Sitting_roller_v2
 {
     public partial class frmroller : Form
     {
-        public string[] People = { };
+        public string[] Peoples = { };
+        List<string> People = new List<string>();
+        List<int> l = new List<int>();
         public string[] removeSave = { };
         public string filePath = @"C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Save_List.txt";
         public int remove = 0;
@@ -31,10 +33,11 @@ namespace Sitting_roller_v2
             //temp
             if (kea.KeyCode.Equals(Keys.Up))
             {
-                if (old + 1 < People.Length)
+                if (old + 1 < People.Count)
                 {
                     old++;
                     txtAR.Text = People[old];
+                    Console.Write("?");
                 }
             }
             if (kea.KeyCode.Equals(Keys.Down))
@@ -55,46 +58,24 @@ namespace Sitting_roller_v2
             if (kea.KeyCode.Equals(Keys.Return))
             {
                 lblList.Text = "";
-                Array.Resize(ref People, People.Length + 1);
-                People[People.Length - 1] = txtAR.Text;
+                People.Add(txtAR.Text);
                 foreach (string line in People)
                 {
                     lblList.Text = lblList.Text + line + "\n";
                 }
-                Console.WriteLine(People.Length);
+                Console.WriteLine(People.Count);
                 txtAR.Text = "";
                 txtAR.Focus();
             }
             if (kea.KeyCode.Equals(Keys.Delete))
             {
                 lblList.Text = "";
-                remove = 0;
-                foreach (string line in People)
-                {
-                    remove++;
-                    if (txtAR.Text == line)
-                    {
-                        People[remove - 1] = "";
-                    }
-                    if (People[remove - 1] != "")
-                    {
-                        Array.Resize(ref removeSave, removeSave.Length + 1);
-                        removeSave[removeSave.Length - 1] = People[remove - 1];
-                    }
-                }
-                Array.Resize(ref People, 0);
-                foreach (string line in removeSave)
-                {
-                    Array.Resize(ref People, People.Length + 1);
-                    People[People.Length - 1] = line;
-
+                People.Remove(txtAR.Text);
                 }
                 foreach (string line1 in People)
                 {
                     lblList.Text = lblList.Text + line1 + "\n";
                 }
-                Array.Resize(ref removeSave, 0);
-            }
         }
         //Add
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -102,13 +83,12 @@ namespace Sitting_roller_v2
             if (txtAR.Text != "") 
             { 
                 lblList.Text = "";
-                Array.Resize(ref People, People.Length + 1);
-                People[People.Length - 1] = txtAR.Text;
-                foreach (string line in People)
+                People.Add(txtAR.Text);
+                foreach (string name in People)
                 {
-                    lblList.Text = lblList.Text + line + "\n";
+                    lblList.Text = lblList.Text + name + "\n";
                 }
-                Console.WriteLine(People.Length);
+                Console.WriteLine(People.Count);
                 txtAR.Text = "";
                 txtAR.Focus();
             }
@@ -117,27 +97,7 @@ namespace Sitting_roller_v2
         private void btnRemove_Click(object sender, EventArgs e)
         {
             lblList.Text = "";
-            remove = 0;
-            foreach (string line in People)
-            {
-                remove++;
-                if (txtAR.Text == line)
-                {
-                    People[remove - 1] = "";
-                }
-                if (People[remove - 1] != "") 
-                {
-                    Array.Resize(ref removeSave, removeSave.Length + 1);
-                    removeSave[removeSave.Length - 1] = People[remove - 1];
-                }
-            }
-            Array.Resize(ref People, 0);
-            foreach (string line in removeSave)
-            {
-                Array.Resize(ref People, People.Length + 1);
-                People[People.Length - 1] = line;
-
-            }
+            People.Remove(txtAR.Text);
             foreach (string line1 in People)
             {
                 lblList.Text = lblList.Text + line1 + "\n";
@@ -148,7 +108,7 @@ namespace Sitting_roller_v2
         private void btnRoll_Click(object sender, EventArgs e)
         {
             lblList.Text = "";
-            People = People.OrderBy(x => Guid.NewGuid()).ToArray();
+            //People = People.OrderBy(x => Guid.NewGuid()).ToArray();
             foreach (string line in People)
             {
                 lblList.Text = lblList.Text + line + "\n";
@@ -171,16 +131,13 @@ namespace Sitting_roller_v2
             lblList.Text = "";
             foreach (string line in File.ReadLines(filePath))
             {
-                Array.Resize(ref People, People.Length + 1);
-                People[People.Length - 1] = line;
+                People.Add(line);
                 lblList.Text = lblList.Text + line + "\n";
             }
         }
 
         private void btnWipe_Click(object sender, EventArgs e)
         {
-            Array.Resize(ref People, 0);
-            Array.Resize(ref removeSave, 0);
             lblList.Text = "";
         }
     }
