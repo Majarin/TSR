@@ -15,9 +15,7 @@ namespace Sitting_roller_v2
 {
     public partial class frmroller : Form
     {
-        public string[] Peoples = { };
         List<string> People = new List<string>();
-        List<int> l = new List<int>();
         public string[] removeSave = { };
         public string filePath = @"C:\Users\TomRuneWakaValen\source\repos\Sitting roller v2\Save_List.txt";
         public int remove = 0;
@@ -71,11 +69,11 @@ namespace Sitting_roller_v2
             {
                 lblList.Text = "";
                 People.Remove(txtAR.Text);
-                }
                 foreach (string line1 in People)
                 {
                     lblList.Text = lblList.Text + line1 + "\n";
                 }
+            }
         }
         //Add
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -108,7 +106,20 @@ namespace Sitting_roller_v2
         private void btnRoll_Click(object sender, EventArgs e)
         {
             lblList.Text = "";
-            //People = People.OrderBy(x => Guid.NewGuid()).ToArray();
+
+
+            Random rng = new Random();
+            int n = People.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                string value = People[k];
+                People[k] = People[n];
+                People[n] = value;
+            }
+
+
             foreach (string line in People)
             {
                 lblList.Text = lblList.Text + line + "\n";
